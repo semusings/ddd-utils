@@ -8,10 +8,6 @@ public class AggregateRoot<ID> extends Entity<ID> {
 
     private List<DomainEvent> domainEvents = new ArrayList<>();
 
-    protected AggregateRoot(ID id) {
-        super(id);
-    }
-
     /**
      * Register domain event
      *

@@ -8,7 +8,7 @@
     <packaging>jar</packaging>
 
     <name>DDD + Clean Code + Rail Way</name>
-    <url>https://jitpack.io/#BhuwanUpadhyay/ddd-utils/${project.version}</url>
+    <url>https://jitpack.io/#BhuwanUpadhyay/ddd-utils</url>
 
 
     <properties>

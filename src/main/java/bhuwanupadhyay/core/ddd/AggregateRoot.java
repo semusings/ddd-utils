@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class AggregateRoot<ID> extends Entity<ID> {
+public abstract class AggregateRoot<ID> extends Entity<ID> {
 
     private List<DomainEvent> domainEvents = new ArrayList<>();
 

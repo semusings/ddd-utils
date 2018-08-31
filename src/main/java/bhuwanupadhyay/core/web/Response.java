@@ -1,17 +1,17 @@
 package bhuwanupadhyay.core.web;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Response<T> {
 
     private T body;
     private String errorMessage;
-    private LocalDateTime generatedAt;
+    private Date generatedAt;
 
     private Response(T body, String errorMessage) {
         this.body = body;
         this.errorMessage = errorMessage;
-        this.generatedAt = LocalDateTime.now();
+        this.generatedAt = new Date();
     }
 
     public static <T> Response<T> ok(T result) {
@@ -27,7 +27,7 @@ public class Response<T> {
         return body;
     }
 
-    public LocalDateTime getGeneratedAt() {
+    public Date getGeneratedAt() {
         return generatedAt;
     }
 

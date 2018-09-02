@@ -88,8 +88,7 @@ public class Failure<TSuccess, TFailure> extends Result<TSuccess, TFailure> {
 
     @Override
     public Result<TSuccess, TFailure> onFailureThrow(Function<TFailure, RuntimeException> function) {
-        function.apply(getError());
-        return this;
+        throw function.apply(getError());
     }
 
     @Override

@@ -10,6 +10,7 @@ import java.util.function.Supplier;
 
 import static org.apache.commons.lang3.StringUtils.isNotBlank;
 
+@SuppressWarnings("WeakerAccess")
 public abstract class Result<TSuccess, TFailure> {
 
     public static <TSuccess, TFailure> Result<TSuccess, TFailure> withError(final TFailure error) {
@@ -103,6 +104,8 @@ public abstract class Result<TSuccess, TFailure> {
     public abstract Result<TSuccess, TFailure> onSuccess(final Consumer<TSuccess> function);
 
     public abstract Result<TSuccess, TFailure> onFailure(final Runnable function);
+
+    public abstract Result<TSuccess, TFailure> onFailureThrow(final Function<TFailure, RuntimeException> function);
 
     public abstract Result<TSuccess, TFailure> onFailure(final Consumer<TFailure> function);
 

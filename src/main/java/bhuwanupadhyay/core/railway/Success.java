@@ -113,6 +113,11 @@ public class Success<TSuccess, TFailure> extends Result<TSuccess, TFailure> {
     }
 
     @Override
+    public Result<TSuccess, TFailure> onFailureThrow(Function<TFailure, RuntimeException> function) {
+        return this;
+    }
+
+    @Override
     public Result<TSuccess, TFailure> onFailure(final Consumer<TFailure> function) {
         return this;
     }

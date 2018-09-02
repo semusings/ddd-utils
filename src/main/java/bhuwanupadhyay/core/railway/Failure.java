@@ -5,6 +5,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
+@SuppressWarnings("WeakerAccess")
 public class Failure<TSuccess, TFailure> extends Result<TSuccess, TFailure> {
 
     private final TFailure error;
@@ -64,9 +65,7 @@ public class Failure<TSuccess, TFailure> extends Result<TSuccess, TFailure> {
 
     @Override
     public <T> Result<T, TFailure> flatMap(
-            final Function<TSuccess, Result<T, TFailure>> function)
-
-    {
+            final Function<TSuccess, Result<T, TFailure>> function) {
         return new Failure<>(getError());
     }
 
@@ -84,6 +83,12 @@ public class Failure<TSuccess, TFailure> extends Result<TSuccess, TFailure> {
     @Override
     public Result<TSuccess, TFailure> onFailure(final Runnable function) {
         function.run();
+        return this;
+    }
+
+    @Override
+    public Result<TSuccess, TFailure> onFailureThrow(Function<TFailure, RuntimeException> function) {
+        function.apply(getError());
         return this;
     }
 

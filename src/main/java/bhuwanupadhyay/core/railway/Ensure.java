@@ -13,16 +13,15 @@ public class Ensure<TSuccess, TFailure> {
     private Predicate<TSuccess> predicate;
     private TFailure failure;
 
+    public static class Builder<TSuccess, TFailure> {
+        private List<Ensure<TSuccess, TFailure>> ensures = new ArrayList<>();
 
-    public static class Builder<K, V> {
-        private List<Ensure<K, V>> ensures = new ArrayList<>();
-
-        public Builder<K, V> put(Ensure<K, V> ensure) {
+        public Builder<TSuccess, TFailure> put(Ensure<TSuccess, TFailure> ensure) {
             this.ensures.add(ensure);
             return this;
         }
 
-        public List<Ensure<K, V>> build() {
+        public List<Ensure<TSuccess, TFailure>> build() {
             return ensures;
         }
     }

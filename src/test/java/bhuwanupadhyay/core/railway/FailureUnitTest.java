@@ -4,7 +4,6 @@ import bhuwanupadhyay.core.railway.message.Message;
 import bhuwanupadhyay.core.railway.message.MessageRuntimeException;
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static bhuwanupadhyay.core.railway.message.Message.withError;

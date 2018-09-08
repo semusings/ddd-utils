@@ -1,28 +1,29 @@
 package bhuwanupadhyay.core.railway;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
+@AllArgsConstructor
+@Getter
 public class Ensure<TSuccess, TFailure> {
     private Predicate<TSuccess> predicate;
     private TFailure failure;
 
-    public Ensure(Predicate<TSuccess> predicate, TFailure failure) {
-        this.predicate = predicate;
-        this.failure = failure;
-    }
 
-    public Predicate<TSuccess> getPredicate() {
-        return predicate;
-    }
+    public static class Builder<K, V> {
+        private List<Ensure<K, V>> ensures = new ArrayList<>();
 
-    public TFailure getFailure() {
-        return failure;
-    }
+        public Builder<K, V> put(Ensure<K, V> ensure) {
+            this.ensures.add(ensure);
+            return this;
+        }
 
-    public  static <TSuccess, TFailure> List<Ensure<TSuccess, TFailure>> of(Ensure<TSuccess, TFailure> ensures) {
-        List<Ensure<TSuccess, TFailure>> list = new ArrayList<>();
-        return list;
+        public List<Ensure<K, V>> build() {
+            return ensures;
+        }
     }
 }

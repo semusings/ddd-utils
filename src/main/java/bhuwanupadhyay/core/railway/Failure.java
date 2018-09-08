@@ -1,5 +1,7 @@
 package bhuwanupadhyay.core.railway;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -61,6 +63,11 @@ public class Failure<TSuccess, TFailure> extends Result<TSuccess, TFailure> {
     public Result<TSuccess, TFailure> ensure(
             final Predicate<TSuccess> predicate, final TFailure error) {
         return this;
+    }
+
+    @Override
+    public Result<TSuccess, List<TFailure>> ensureAll(List<Ensure<TSuccess, TFailure>> ensure) {
+        return new Failure<>(new ArrayList<>());
     }
 
     @Override

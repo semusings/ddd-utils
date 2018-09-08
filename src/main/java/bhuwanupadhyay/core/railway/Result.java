@@ -2,6 +2,7 @@ package bhuwanupadhyay.core.railway;
 
 import bhuwanupadhyay.core.railway.message.Message;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -120,6 +121,8 @@ public abstract class Result<TSuccess, TFailure> {
 
     public abstract Result<TSuccess, TFailure> ensure(
             final Predicate<TSuccess> predicate, final TFailure error);
+
+    public abstract Result<TSuccess, List<TFailure>> ensureAll(final List<Ensure<TSuccess, TFailure>> ensure);
 
     public abstract <T> Result<T, TFailure> flatMap(
             final Function<TSuccess, Result<T, TFailure>> function);

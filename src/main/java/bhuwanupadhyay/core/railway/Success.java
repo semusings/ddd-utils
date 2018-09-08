@@ -1,5 +1,7 @@
 package bhuwanupadhyay.core.railway;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -85,6 +87,17 @@ public class Success<TSuccess, TFailure> extends Result<TSuccess, TFailure> {
             return new Failure<>(error);
         }
         return this;
+    }
+
+    @Override
+    public Result<TSuccess, List<TFailure>> ensureAll(List<Ensure<TSuccess, TFailure>> ensures) {
+        List<TFailure> failures = new ArrayList<>();
+        for (Ensure<TSuccess, TFailure> ensure : ensures) {
+            Result<TSuccess, TFailure> result = ensure(ensure.getPredicate(), ensure.getFailure());
+            if (result.isFailure())
+                failures.add(result.getError());
+        }
+        return failures.isEmpty() ? new Success<>(getValue()) : new Failure<>(failures);
     }
 
     @Override

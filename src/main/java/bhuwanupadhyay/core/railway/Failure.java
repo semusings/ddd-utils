@@ -67,7 +67,9 @@ public class Failure<TSuccess, TFailure> extends Result<TSuccess, TFailure> {
 
     @Override
     public Result<TSuccess, List<TFailure>> ensureAll(List<Ensure<TSuccess, TFailure>> ensure) {
-        return new Failure<>(new ArrayList<>());
+        ArrayList<TFailure> failures = new ArrayList<>();
+        failures.add(getError());
+        return new Failure<>(failures);
     }
 
     @Override

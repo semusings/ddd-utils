@@ -45,6 +45,19 @@ public class FailureUnitTest {
         assertEquals("person.email.should.have_@", messages.get(1).getText());
     }
 
+
+    @Test
+    public void onEnsureAll_FailedWithNull() {
+        Person person = null;
+        Result<Person, List<Message>> result =
+                Result.with(person, withError("person.should.not.null"))
+                        .ensureAll(personEnsure());
+        assertFalse(result.isSuccess());
+        assertTrue(result.isFailure());
+        List<Message> messages = result.getError();
+        assertEquals("person.should.not.null", messages.get(0).getText());
+    }
+
     private List<Ensure<Person, Message>> personEnsure() {
         return new Ensure.Builder<Person, Message>()
                 .put(new Ensure<>(p -> isNotBlank(p.getName()), withError("person.name.should.not.be.blank")))

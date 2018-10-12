@@ -4,7 +4,7 @@
 
     <groupId>io.github.bhuwanupadhyay</groupId>
     <artifactId>ddd-utils</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>DDD + Clean Code + Rail Way</name>

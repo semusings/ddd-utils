@@ -5,11 +5,13 @@
     <parent>
         <groupId>io.github.bhuwanupadhyay</groupId>
         <artifactId>ddd-utils-build</artifactId>
-        <version>1.0</version>
+        <version>1.0.BUILD-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>ddd-core</artifactId>
+
+    <name>DDD Core Library</name>
 
     <dependencies>
         <dependency>

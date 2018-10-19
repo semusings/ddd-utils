@@ -3,8 +3,7 @@ build:
 copy-docs:
 	cp -R ddd-utils-docs/target/contents/reference/htmlsingle/* docs/
 gen-docs:
-	@read -p "Revision: " revision; \
-	mvn clean package -Pfull -Drevision=$${revision} -e && \
+	mvn clean package -Pfull && \
 	$(MAKE) copy-docs
 deploy:
 	@read -p "Revision: " revision; \

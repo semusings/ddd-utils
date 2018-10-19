@@ -1,8 +1,5 @@
 package io.github.bhuwanupadhyay.ddd;
 
-import io.github.bhuwanupadhyay.ddd.AggregateRoot;
-import io.github.bhuwanupadhyay.ddd.DomainEvent;
-
 import java.util.List;
 
 public interface EventStore {

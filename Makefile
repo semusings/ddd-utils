@@ -14,4 +14,5 @@ publish-gpg-key:
 	@read -p "Gpg Key Id: " keyId; \
 	gpg --send-keys --keyserver keyserver.ubuntu.com $${keyId}
 gen-docs:
-	mvn clean package -Pfull
+	mvn clean package -Pfull && \
+	cp -R ddd-utils-docs/target/contents/reference/htmlsingle/* docs/

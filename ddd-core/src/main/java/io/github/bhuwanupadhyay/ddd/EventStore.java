@@ -1,4 +1,4 @@
-package io.github.bhuwanupadhyay.cqrs;
+package io.github.bhuwanupadhyay.ddd;
 
 import io.github.bhuwanupadhyay.ddd.AggregateRoot;
 import io.github.bhuwanupadhyay.ddd.DomainEvent;

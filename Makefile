@@ -1,7 +1,11 @@
 build:
 	mvn clean install
+copy-docs:
+	cp -R ddd-utils-docs/target/contents/reference/htmlsingle/* docs/
 deploy:
-	mvn clean deploy -Prelease,central
+	@read -p "Revision: " revision; \
+	mvn clean deploy -Prelease,central,full -Drevision=$${revision} -e && \
+	$(MAKE) copy-docs
 staging:
 	mvn clean deploy -Pcentral
 gen-gpg:
@@ -13,6 +17,3 @@ publish-gpg-key:
 	gpg -K
 	@read -p "Gpg Key Id: " keyId; \
 	gpg --send-keys --keyserver keyserver.ubuntu.com $${keyId}
-gen-docs:
-	mvn clean package -Pfull && \
-	cp -R ddd-utils-docs/target/contents/reference/htmlsingle/* docs/

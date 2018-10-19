@@ -11,6 +11,10 @@
     <name>DDD Utils Docs</name>
     <description>DDD Utils Docs</description>
 
+    <properties>
+        <maven.deploy.skip>true</maven.deploy.skip>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>io.github.bhuwanupadhyay</groupId>
@@ -23,6 +27,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
                 <configuration>
                     <excludes>
                         <exclude>**</exclude>
@@ -44,6 +49,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>3.0.1</version>
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>
@@ -71,6 +77,7 @@
                     <plugin>
                         <groupId>org.asciidoctor</groupId>
                         <artifactId>asciidoctor-maven-plugin</artifactId>
+                        <version>1.5.7.1</version>
                         <executions>
                             <execution>
                                 <id>generate-docbook</id>
@@ -224,28 +231,6 @@
                                         <move file="${basedir}/target/contents/reference/epub/index.epub"
                                               tofile="${basedir}/target/contents/reference/epub/ddd-utils-reference.epub"/>
                                     </postProcess>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>build-helper-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>attach-zip</id>
-                                <goals>
-                                    <goal>attach-artifact</goal>
-                                </goals>
-                                <configuration>
-                                    <artifacts>
-                                        <artifact>
-                                            <file>
-                                                ${project.build.directory}/${project.artifactId}-${project.version}.zip
-                                            </file>
-                                            <type>zip</type>
-                                        </artifact>
-                                    </artifacts>
                                 </configuration>
                             </execution>
                         </executions>

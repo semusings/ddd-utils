@@ -10,7 +10,8 @@ deploy:
 	mvn clean deploy -Prelease,central,full -Drevision=$${revision} -e && \
 	$(MAKE) copy-docs
 staging:
-	mvn clean deploy -Pcentral
+	@read -p "Sonatype Password: " passwd; \
+	mvn -s mvn_settings.xml clean deploy -Pcentral -Dsonatype.user=developerbhuwan -Dsonatype.passwd=$${passwd}
 gen-gpg:
 	gpg --full-generate-key
 export-gpg:

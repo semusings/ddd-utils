@@ -17,7 +17,7 @@
     <url>https://github.com/BhuwanUpadhyay/ddd-utils</url>
 
     <organization>
-        <name>BhuwanUpadhyay OpenSource</name>
+        <name>Bhuwan Prasad Upadhyay | Open Source</name>
         <url>https://bhuwanupadhyay.github.io/open-source</url>
     </organization>
 
@@ -186,7 +186,7 @@
                             <configuration>
                                 <serverId>sonatype</serverId>
                                 <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                                <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                                <autoReleaseAfterClose>true</autoReleaseAfterClose>
                             </configuration>
                         </plugin>
                     </plugins>
